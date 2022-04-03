@@ -8,8 +8,8 @@ class Player:
         self.down_list = []
         self.left_list = []
         self.right_list = []
-        for i in range(os.listdir(path_to_sprite+'\Up')):
-            image = pygame.image.load(path_to_sprite+'\Up'+str(i)).convert()
+        for i in range(len(os.listdir(path_to_sprite+'/Up'))):
+            image = pygame.image.load(path_to_sprite+'/Up'+str(i+1)+'.gif').convert()
             self.up_list.append(image)
         print('Done')
 
