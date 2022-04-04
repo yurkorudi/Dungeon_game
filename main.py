@@ -42,6 +42,7 @@ while running:
 
 
     keys = pygame.key.get_pressed()
+    print(keys)
     if keys[pygame.K_LEFT]:
         player.x = player.x - player.step
         player.STATE = 'go_left'
