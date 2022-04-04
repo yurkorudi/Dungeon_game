@@ -11,6 +11,8 @@ class Player:
         self.STATE = 'stand'
         self.y = y
         self.x = x
+        self.left_right_frame = 0
+        self.up_down_frame = 0
         self.step = 5
         self.up_list = []
         self.down_list = []
@@ -59,12 +61,48 @@ class Player:
         where.blit(self.image, (self.x-(self.image.get_width()/2), self.y-(self.image.get_height()/2)))
         
     def change_sprites(self):
-        pass
+        if self.STATE == 'go_left':
+            try:
+                self.image = self.left_list[self.left_right_frame]
+                self.left_right_frame +=1
+            except:
+                self.left_right_frame = 0
+                self.image = self.left_list[self.left_right_frame]
+                self.left_right_frame += 1
+        elif self.STATE == 'go_right':
+            try:
+                self.image = self.right_list[self.left_right_frame]
+                self.left_right_frame +=1
+            except:
+                self.left_right_frame = 0
+                self.image = self.right_list[self.left_right_frame]
+                self.left_right_frame += 1
+        elif self.STATE == 'go_up':
+            try:
+                self.image = self.up_list[self.up_down_frame]
+                self.up_down_frame +=1
+            except:
+                self.up_down_frame = 0
+                self.image = self.up_list[self.up_down_frame]
+                self.up_down_frame += 1
+        elif self.STATE == 'go_down':
+            try:
+                self.image = self.down_list[self.up_down_frame]
+                self.up_down_frame +=1
+            except:
+                self.up_down_frame = 0
+                self.image = self.down_list[self.up_down_frame]
+                self.up_down_frame += 1
+        elif self.STATE == 'stand_left':
+            self.image = self.stand_list[0]
+        elif self.STATE == 'right_left':
+            self.image = self.stand_list[1]
+        else:
+            self.image = self.stand_list[2]
+
 
     def go_left(self):
-        self.STATE = 'go_left'
-        self.x = self.x - self.step
-
+        pass
 
     def go_right(self):
         pass
